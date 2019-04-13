@@ -3,6 +3,7 @@ const File = require('../models/File');
 
 class FileController {
   async store(req, res) {
+    res.setHeader('Access-Control-Allow-Credentials', true);
     const box = await Box.findById(req.params.id);
     const file = await File.create({
       title: req.file.originalname,
